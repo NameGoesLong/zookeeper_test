@@ -1,6 +1,9 @@
 /*
 Zookeeper client would create extra two threads during the process:
 1. IO Thread -- handles connection between our app and server
+IMPORTANT: If IO thread did not come back to ZooKeeper within the TIME_OUT, ZooKeeper
+would regard the node as dead.
+
 2. Event Thread -- collect all the events coming from the zookeeper server
 
 Connect and handle events for zookeeper:
